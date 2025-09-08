@@ -20,5 +20,3 @@ conda activate rsem_install
 module load perl
 
 STAR --runMode genomeGenerate --runThreadN 12 --genomeDir /scratch/alpine/hvose@xsede.org/Genomes/Hsap/ --genomeFastaFiles /scratch/alpine/hvose@xsede.org/Genomes/Hsap/Hsap38.geve.ntm_v1.fa
-
-rsem-prepare-reference /scratch/alpine/hvose@xsede.org/Genomes/Hsap/Hsap38.geve.ntm_v1.fa /scratch/alpine/hvose@xsede.org/Genomes/Hsap/hgHsap38.gtf
