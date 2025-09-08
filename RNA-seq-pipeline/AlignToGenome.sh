@@ -18,4 +18,4 @@ echo "Loading Apps:"
 module load star/2.7.10b
 module load perl
 
-perl /scratch/alpine/$USER/Miner_Chauvin_AlignToGenome.pl /scratch/alpine/$USER/sra/PRJNA892984/ $SLURM_ARRAY_TASK_ID $SLURM_ARRAY_TASK_COUNT PRJNA892984_FASTQ.txt
+perl /scratch/alpine/$USER/AlignToGenome.pl /scratch/alpine/$USER/sra/PRJNA892984/ $SLURM_ARRAY_TASK_ID $SLURM_ARRAY_TASK_COUNT PRJNA892984_FASTQ.txt
