@@ -1,0 +1,1 @@
+This folder contains all of the shell scripts and code for the scRNA seq pipeline. Currently this is only set to work with STARSolo, but we're working on getting cellranger / BCL convert thrown into the mix.
