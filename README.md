@@ -1,1 +1,3 @@
-Hello! This is where all of the most updated code used in the Viralogue Lab at the University of Colorado Anschutz will be maintained. 
+# Viralogue Pipeline Repository
+
+This repo is for all of the finished pipelines in the Viralogue Lab. These are updated semi-regularly and will have documentation soon-ish :)
