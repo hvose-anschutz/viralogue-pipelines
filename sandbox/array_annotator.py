@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+"""Takes in a list of NCBI accession numbers, batches them, and then uses efetch and regular expressions to return the species name."""
+
 import subprocess
 import re
 import time
@@ -80,5 +82,6 @@ with open(outfile, "w") as final:
         final.write(key + "\t" + value + "\n")
 
 final.close()
+
 
 print("all done!")
