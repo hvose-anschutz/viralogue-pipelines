@@ -1,0 +1,3 @@
+Loading Apps:
+/var/spool/slurmd/job26016989/slurm_script: line 20: 1200671 Killed                  python3 scRNA_batch_fixer.py
+slurmstepd: error: Detected 1 oom_kill event in StepId=26016989.batch. Some of the step tasks have been OOM Killed.
