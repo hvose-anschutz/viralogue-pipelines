@@ -6,7 +6,7 @@
 #SBATCH --time=01:30:00
 #SBATCH --mem=24G
 #SBATCH --ntasks=4
-#SBATCH --array=1-9
+#SBATCH --array=1-75
 #SBATCH --account=amc-general
 #SBATCH --job-name=MakeTagDir
 #SBATCH --output=MakeTagDirC_Sidd_%J.out
@@ -17,4 +17,4 @@
 module load homer
 module load perl
 
-perl /scratch/alpine/$USER/MakeTagDirectory_ClassSingle.pl /scratch/alpine/$USER/SamFiles/Class/SamFilenames.txt $SLURM_ARRAY_TASK_ID $SLURM_ARRAY_TASK_COUNT
+perl /scratch/alpine/$USER/viralogue-pipelines/RNA-seq-pipeline/MakeTagDirectory_LocusSingle.pl /scratch/alpine/$USER/SamFiles/Locus/SamFilenames.txt $SLURM_ARRAY_TASK_ID $SLURM_ARRAY_TASK_COUNT

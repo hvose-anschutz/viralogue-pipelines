@@ -12,7 +12,7 @@
 #SBATCH --mail-user=holly.vose@cuanschutz.edu
 #SBATCH --mail-type=BEGIN
 #SBATCH --mail-type=END
-#SBATCH --array=1-9
+#SBATCH --array=1-74
 
 echo "Loading Apps:"
 module load sra-toolkit/3.0.0
@@ -21,5 +21,5 @@ module load perl
 echo "Current Array Task" ${SLURM_ARRAY_TASK_ID[@]}
 
 
-perl /scratch/alpine/hvose@xsede.org/GetSRA.pl /projects/hvose@xsede.org/AccessionLists/PRJNA892984_Acc_List.txt $SLURM_ARRAY_TASK_ID $SLURM_ARRAY_TASK_COUNT
+perl /scratch/alpine/hvose@xsede.org/viralogue-pipelines/RNA-seq-pipeline/GetSRA.pl /projects/hvose@xsede.org/AccessionLists/PRJNA818339.txt $SLURM_ARRAY_TASK_ID $SLURM_ARRAY_TASK_COUNT
 

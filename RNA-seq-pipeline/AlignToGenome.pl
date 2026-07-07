@@ -14,7 +14,7 @@ while(defined(my$line = <MYFILE>)){
 		my$Cwd = `pwd`;
 		my$FastqDir = $ARGV[0];
 		chomp($Cwd);
-		my$GenomeWd = $Cwd . '/Genomes/hg38';  
+		my$GenomeWd = '/projects/hvose@xsede.org/Genomes/hg38';  
 		chomp($GenomeWd);      
 
 		my$R2File = $line;
@@ -23,13 +23,12 @@ while(defined(my$line = <MYFILE>)){
 
 		my$ClassOutput = $line;
 		$ClassOutput =~ s/_1.+//;
-		$ClassOutput =~ s/.+\///;
-		my$TheClassOutput = $Cwd . '/SamFiles/Class/' . $ClassOutput . '.Loose.mapped_to_hg38';
-		my$LocusOutput = $Cwd . '/SamFiles/Locus/' . $ClassOutput . '.Strict.mapped_to_hg38';
+		# $ClassOutput =~ s/.+\///;
+		my$TheClassOutput = '/scratch/alpine/hvose@xsede.org/SamFiles/Class/' . $ClassOutput . '.Loose.mapped_to_hg38';
+		my$LocusOutput = '/scratch/alpine/hvose@xsede.org/SamFiles/Locus/' . $ClassOutput . '.Strict.mapped_to_hg38';
 		
 		print "ALL VARIABLES\n";
-		print "R1 File: " . $R1File . "\n";
-		print "R2 File: " . $R2File . "\n";
+		print "R1 + R2 File: " . $R1File . "\n";
 		print "Class File Output: " . $TheClassOutput . "\n";
 		print "Locus File Output: " . $LocusOutput . "\n";
 
