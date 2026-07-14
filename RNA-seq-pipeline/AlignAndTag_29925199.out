@@ -1,0 +1,7 @@
+Loading Apps:
+HOMER data, including all the supported genome files, are located in /gpfs/alpine1/datasets/bioinformatics/homer 
+You must use "-preparsedDir <directory of choice>" when running findMotifsGenome.pl.
+ALL VARIABLES
+R1 + R2 File: /scratch/alpine/hvose@xsede.org/30-1340296303/00_fastq/10_R1_001.fastq /scratch/alpine/hvose@xsede.org/30-1340296303/00_fastq/10_R1_001.fastq
+Class File Output: /scratch/alpine/hvose@xsede.org/SamFiles/Class/10_R1_001.fastq.Loose.mapped_to_hg38
+Locus File Output: /scratch/alpine/hvose@xsede.org/SamFiles/Locus/10_R1_001.fastq.Strict.mapped_to_hg38
