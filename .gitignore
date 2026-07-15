@@ -1,3 +1,5 @@
 .ipynb_checkpoints/
 scRNA-seq-pipeline/data/
 scRNA-seq-pipeline/outputs/
+RNA-seq-pipeline/data/
+*.out

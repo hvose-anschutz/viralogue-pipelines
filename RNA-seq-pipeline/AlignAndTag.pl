@@ -31,13 +31,13 @@ while(defined(my$line = <MYFILE>)){
 		print "Class File Output: " . $ClassOutput . "\n";
 		print "Locus File Output: " . $LocusOutput . "\n";
 
-		`STAR --runMode alignReads --runThreadN 12 --genomeDir $GenomeWd --outFilterMultimapNmax 1000000 --outFilterScoreMinOverLread 0 --outFilterMatchNminOverLread 0 --outFilterMatchNmin 0 --outFilterMismatchNmax 2 --readFilesIn $R1File --outFileNamePrefix $ClassOutput --limitOutSAMoneReadBytes 10000000`;
+		`STAR --runMode alignReads --runThreadN 12 --genomeDir $GenomeWd --readFilesCommand zcat --outFilterMultimapNmax 1000000 --outFilterScoreMinOverLread 0 --outFilterMatchNminOverLread 0 --outFilterMatchNmin 0 --outFilterMismatchNmax 2 --readFilesIn $R1File --outFileNamePrefix $ClassOutput --limitOutSAMoneReadBytes 10000000`;
         
         # my$Command = 'STAR --runMode alignReads --runThreadN 12 --genomeDir '. $GenomeWd . ' --outFilterMultimapNmax 2 --outFilterScoreMinOverLread 0 --outFilterMatchNminOverLread 0 --outFilterMatchNmin 0 --outFilterMismatchNmax 2 --readFilesIn $R1File --outFileNamePrefix '. $LocusOutput --limitOutSAMoneReadBytes 1000000000;
         
         # print "$Command";
         
-		`STAR --runMode alignReads --runThreadN 12 --genomeDir $GenomeWd --outFilterMultimapNmax 2 --outFilterScoreMinOverLread 0 --outFilterMatchNminOverLread 0 --outFilterMatchNmin 0 --outFilterMismatchNmax 2 --readFilesIn $R1File --outFileNamePrefix $LocusOutput --limitOutSAMoneReadBytes 1000000000`;
+		`STAR --runMode alignReads --runThreadN 12 --genomeDir $GenomeWd --readFilesCommand zcat --outFilterMultimapNmax 2 --outFilterScoreMinOverLread 0 --outFilterMatchNminOverLread 0 --outFilterMatchNmin 0 --outFilterMismatchNmax 2 --readFilesIn $R1File --outFileNamePrefix $LocusOutput --limitOutSAMoneReadBytes 1000000000`;
 		
 		my$SamFileClass = $ClassOutput . 'Aligned.out.sam';
 		my$SamFileLocus = $LocusOutput . 'Aligned.out.sam';
@@ -49,8 +49,7 @@ while(defined(my$line = <MYFILE>)){
 		my$TagHomeClass = '/scratch/alpine/hvose@xsede.org/SamFiles/Class/TagDirectory/' . $TagDirClass;
 		my$TagHomeLocus = '/scratch/alpine/hvose@xsede.org/SamFiles/Locus/TagDirectory/' . $TagDirLocus;
 
-		`makeTagDirectory $TagHomeClass $SamFileClass -format sam -keepOne`;
-		`makeTagDirectory $TagHomeLocus $SamFileLocus -format sam -keepOne`;
+		`makeTagDirectory $TagHomeClass $SamFileClass -format sam -keepOne & makeTagDirectory $TagHomeLocus $SamFileLocus -format sam -keepOne`;
 
 	}
 	$i++;
