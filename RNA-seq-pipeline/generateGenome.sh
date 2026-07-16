@@ -8,7 +8,7 @@
 #SBATCH --ntasks=12
 #SBATCH --account=amc-general
 #SBATCH --job-name=GenerateGenome
-#SBATCH --output=GenerateGenome_04212025_%J.out
+#SBATCH --output=GenerateGenome_new_mm10_%J.out
 #SBATCH --mail-user=holly.vose@cuanschutz.edu
 #SBATCH --mail-type=BEGIN
 #SBATCH --mail-type=END
@@ -19,4 +19,4 @@ module load anaconda
 conda activate rsem_install
 module load perl
 
-STAR --runMode genomeGenerate --runThreadN 12 --genomeDir /scratch/alpine/hvose@xsede.org/Genomes/Hsap/ --genomeFastaFiles /scratch/alpine/hvose@xsede.org/Genomes/Hsap/Hsap38.geve.ntm_v1.fa
+STAR --runMode genomeGenerate --runThreadN 12 --genomeDir /projects/hvose@xsede.org/Genomes/mm10/ --genomeFastaFiles /projects/hvose@xsede.org/Genomes/mm10/mm10.fa
