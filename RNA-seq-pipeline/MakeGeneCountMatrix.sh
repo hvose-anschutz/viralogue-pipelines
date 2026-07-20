@@ -3,12 +3,12 @@
 #SBATCH --nodes=1
 #SBATCH --qos=normal
 #SBATCH --partition=amilan
-#SBATCH --time=01:30:00
-#SBATCH --mem=2G
-#SBATCH --ntasks=2
+#SBATCH --time=03:30:00
+#SBATCH --mem=12G
+#SBATCH --ntasks=6
 #SBATCH --account=amc-general
-#SBATCH --job-name=MakeGeneCountMatrixIntrons
-#SBATCH --output=MakeGeneCountMatrixIntrons_%J.out
+#SBATCH --job-name=MakeGeneCountMatrixExons
+#SBATCH --output=MakeGeneCountMatrixExons_%J.out
 #SBATCH --mail-user=holly.vose@cuanschutz.edu
 #SBATCH --mail-type=BEGIN
 #SBATCH --mail-type=END
@@ -16,7 +16,7 @@
 module load perl
 module load homer/4.11
 
-analyzeRepeats.pl /projects/hvose@xsede.org/Mmus38_ERV.gtf mm10 -count introns -noadj -d \
+analyzeRepeats.pl rna mm10 -count exons -noadj -d \
 /scratch/alpine/hvose@xsede.org/SamFiles/Locus/TagDirectory/10_R1_001/ \
 /scratch/alpine/hvose@xsede.org/SamFiles/Locus/TagDirectory/11_R1_001/ \
 /scratch/alpine/hvose@xsede.org/SamFiles/Locus/TagDirectory/12_R1_001/ \
@@ -49,9 +49,9 @@ analyzeRepeats.pl /projects/hvose@xsede.org/Mmus38_ERV.gtf mm10 -count introns -
 /scratch/alpine/hvose@xsede.org/SamFiles/Locus/TagDirectory/7_R1_001/ \
 /scratch/alpine/hvose@xsede.org/SamFiles/Locus/TagDirectory/8_R1_001/ \
 /scratch/alpine/hvose@xsede.org/SamFiles/Locus/TagDirectory/9_R1_001/ \
-> countTableLocus_ecDNAintrons.txt
+> countTableLocus_ecDNAGeneExons.txt
 
-analyzeRepeats.pl /projects/hvose@xsede.org/Mmus38_ERV.gtf mm10 -count introns -noadj -d \
+analyzeRepeats.pl rna mm10 -count exons -noadj -d \
 /scratch/alpine/hvose@xsede.org/SamFiles/Class/TagDirectory/10_R1_001/ \
 /scratch/alpine/hvose@xsede.org/SamFiles/Class/TagDirectory/11_R1_001/ \
 /scratch/alpine/hvose@xsede.org/SamFiles/Class/TagDirectory/12_R1_001/ \
@@ -84,4 +84,4 @@ analyzeRepeats.pl /projects/hvose@xsede.org/Mmus38_ERV.gtf mm10 -count introns -
 /scratch/alpine/hvose@xsede.org/SamFiles/Class/TagDirectory/7_R1_001/ \
 /scratch/alpine/hvose@xsede.org/SamFiles/Class/TagDirectory/8_R1_001/ \
 /scratch/alpine/hvose@xsede.org/SamFiles/Class/TagDirectory/9_R1_001/ \
-> countTableClass_ecDNAintrons.txt
+> countTableClass_ecDNAGeneExons.txt
