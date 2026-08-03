@@ -1,8 +1,8 @@
 #!/bin/sh
 
 #SBATCH --nodes=1
-#SBATCH --qos=normal
-#SBATCH --partition=amilan
+#SBATCH --qos=cpu-normal
+#SBATCH --partition=acpu
 #SBATCH --time=01:00:00
 #SBATCH --mem=52G
 #SBATCH --ntasks=8

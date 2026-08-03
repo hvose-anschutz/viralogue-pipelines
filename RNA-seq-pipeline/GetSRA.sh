@@ -1,9 +1,9 @@
 #!/bin/sh
 
 #SBATCH --nodes=1
-#SBATCH --qos=normal
-#SBATCH --partition=amilan
-#SBATCH --time=00:15:00
+#SBATCH --qos=cpu-normal
+#SBATCH --partition=acpu
+#SBATCH --time=01:00:00
 #SBATCH --mem=2G
 #SBATCH --ntasks=2
 #SBATCH --account=amc-general
@@ -12,7 +12,7 @@
 #SBATCH --mail-user=holly.vose@cuanschutz.edu
 #SBATCH --mail-type=BEGIN
 #SBATCH --mail-type=END
-#SBATCH --array=1-74
+#SBATCH --array=1-11
 
 echo "Loading Apps:"
 module load sra-toolkit/3.0.0
@@ -21,5 +21,5 @@ module load perl
 echo "Current Array Task" ${SLURM_ARRAY_TASK_ID[@]}
 
 
-perl /scratch/alpine/hvose@xsede.org/viralogue-pipelines/RNA-seq-pipeline/GetSRA.pl /projects/hvose@xsede.org/AccessionLists/PRJNA818339.txt $SLURM_ARRAY_TASK_ID $SLURM_ARRAY_TASK_COUNT
+perl /scratch/alpine/hvose@xsede.org/viralogue-pipelines/RNA-seq-pipeline/GetSRA.pl /projects/hvose@xsede.org/AccessionLists/thp1_stragglers.txt $SLURM_ARRAY_TASK_ID $SLURM_ARRAY_TASK_COUNT
 

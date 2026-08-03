@@ -14,12 +14,17 @@ while(defined(my$line = <MYFILE>)){
 		my$Cwd = `pwd`;
 		my$FastqDir = $ARGV[0];
 		chomp($Cwd);
-		my$GenomeWd = '/projects/hvose@xsede.org/Genomes/mm10';  
+		my$GenomeWd = '/projects/hvose@xsede.org/Genomes/hg38';  
 		chomp($GenomeWd);      
 
-		my$R2File = $line;
-		$R2File =~ s/_1/_2/;
-		my$R1File = $FastqDir . $line .' '. $FastqDir . $R2File;
+        # SINGLE READ VERSION
+        my$R1File = $FastqDir . $line;
+        
+        # PAIRED END VERSION
+        
+		# my$R2File = $line;
+		# $R2File =~ s/_1/_2/;
+		# my$R1File = $FastqDir . $line .' '. $FastqDir . $R2File;
 
 		my$lineOutput = $line;
 		$lineOutput =~ s/_1.+//;
@@ -31,13 +36,13 @@ while(defined(my$line = <MYFILE>)){
 		print "Class File Output: " . $ClassOutput . "\n";
 		print "Locus File Output: " . $LocusOutput . "\n";
 
-		#`STAR --runMode alignReads --runThreadN 12 --genomeDir $GenomeWd --readFilesCommand zcat --outFilterMultimapNmax 1000000 --outFilterScoreMinOverLread 0 --outFilterMatchNminOverLread 0 --outFilterMatchNmin 0 --outFilterMismatchNmax 2 --readFilesIn $R1File --outFileNamePrefix $ClassOutput --limitOutSAMoneReadBytes 10000000`;
+		#`STAR --runMode alignReads --runThreadN 20 --genomeDir $GenomeWd --readFilesCommand zcat --outFilterMultimapNmax 1000000 --outFilterScoreMinOverLread 0 --outFilterMatchNminOverLread 0 --outFilterMatchNmin 0 --outFilterMismatchNmax 2 --readFilesIn $R1File --outFileNamePrefix $ClassOutput --limitOutSAMoneReadBytes 10000000`;
         
         # my$Command = 'STAR --runMode alignReads --runThreadN 12 --genomeDir '. $GenomeWd . ' --outFilterMultimapNmax 2 --outFilterScoreMinOverLread 0 --outFilterMatchNminOverLread 0 --outFilterMatchNmin 0 --outFilterMismatchNmax 2 --readFilesIn $R1File --outFileNamePrefix '. $LocusOutput --limitOutSAMoneReadBytes 1000000000;
         
         # print "$Command";
         
-		`STAR --runMode alignReads --runThreadN 12 --genomeDir $GenomeWd --readFilesCommand zcat --outFilterMultimapNmax 2 --outFilterScoreMinOverLread 0 --outFilterMatchNminOverLread 0 --outFilterMatchNmin 0 --outFilterMismatchNmax 2 --readFilesIn $R1File --outFileNamePrefix $LocusOutput --limitOutSAMoneReadBytes 1000000000`;
+		`STAR --runMode alignReads --runThreadN 20 --genomeDir $GenomeWd --outFilterMultimapNmax 2 --outFilterScoreMinOverLread 0 --outFilterMatchNminOverLread 0 --outFilterMatchNmin 0 --outFilterMismatchNmax 2 --readFilesIn $R1File --outFileNamePrefix $LocusOutput --limitOutSAMoneReadBytes 1000000000`;
 		
 		my$SamFileClass = $ClassOutput . 'Aligned.out.sam';
 		my$SamFileLocus = $LocusOutput . 'Aligned.out.sam';
