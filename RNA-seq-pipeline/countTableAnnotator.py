@@ -8,14 +8,13 @@ import sys
 
 ANNOTATION_REF = {}
 experiment_index = {}
-sums_and_avgs = {}
 
-with open(sys.argv[2],"r",encoding="utf-8") as annot, open(sys.argv[3],"w",encoding="utf-8") as out:
+with open(sys.argv[2],"r",encoding="utf-8") as annot:
     for line in annot:
         my_line = line.strip().split("\t")
         ANNOTATION_REF[my_line[0]] = my_line[15]
 
-with open(sys.argv[1],"r",encoding="utf-8") as f:
+with open(sys.argv[1],"r",encoding="utf-8") as f, open(sys.argv[3],"w",encoding="utf-8") as out:
     for idx, line in enumerate(f):
         my_line = line.strip().split("\t")
         if idx == 0:
@@ -37,7 +36,6 @@ with open(sys.argv[1],"r",encoding="utf-8") as f:
             for count in my_line[8:]:
                 total_count += float(count)
             total_avg = total_count / total_samples
-            sums_and_avgs[my_line[0]]
 
             try:
                 my_annotation = ANNOTATION_REF[my_line[0]]
@@ -45,8 +43,8 @@ with open(sys.argv[1],"r",encoding="utf-8") as f:
                 print(f"no annotation found for id {my_line[0]}")
                 my_annotation = "NO ANNOTATION"
 
-            my_line.append(total_count)
-            my_line.append(total_avg)
+            my_line.append(str(total_count))
+            my_line.append(str(total_avg))
             my_line.append(my_annotation)
             new_line = "\t".join(my_line)
             out.write(f"{new_line}\n")

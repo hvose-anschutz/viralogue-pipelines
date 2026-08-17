@@ -175,4 +175,5 @@ analyzeRepeats.pl /projects/hvose@xsede.org/Hsap38_ERV_1.gtf hg38 -noadj -d \
 /scratch/alpine/hvose@xsede.org/SamFiles/Locus/TagDirectory/SRR39638004 \
 /scratch/alpine/hvose@xsede.org/SamFiles/Locus/TagDirectory/SRR39638005 \
 /scratch/alpine/hvose@xsede.org/SamFiles/Locus/TagDirectory/SRR39638006 \
-> countTablePFAS_ERV.txt
+> countTablePFAS_ERV.txt && \
+python3 countTableAnnotator.py countTablePFAS_ERV.txt /projects/hvose@xsede.org/Hsap38.txt countTablePFAS_ERV_annotated.txt
