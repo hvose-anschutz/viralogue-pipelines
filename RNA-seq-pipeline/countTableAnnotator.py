@@ -12,7 +12,7 @@ experiment_index = {}
 with open(sys.argv[2],"r",encoding="utf-8") as annot:
     for line in annot:
         my_line = line.strip().split("\t")
-        ANNOTATION_REF[my_line[0]] = my_line[15]
+        ANNOTATION_REF[my_line[0]] = my_line[int(sys.argv[4])]
 
 with open(sys.argv[1],"r",encoding="utf-8") as f, open(sys.argv[3],"w",encoding="utf-8") as out:
     for idx, line in enumerate(f):
