@@ -3,5 +3,6 @@ scRNA-seq-pipeline/data/
 scRNA-seq-pipeline/figures/
 scRNA-seq-pipeline/outputs/
 RNA-seq-pipeline/data/
+scRNA-seq-pipeline/cache/
 *.out
 *.h5ad
