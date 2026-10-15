@@ -23,11 +23,11 @@ while(defined(my$line = <MYFILE>)){
         # PAIRED END VERSION
         
 		# my$R2File = $line;
-		# $R2File =~ s/_1/_2/;
+		# $R2File =~ s/_R1/_R2/;
 		# my$R1File = $FastqDir . $line .' '. $FastqDir . $R2File;
 
 		my$lineOutput = $line;
-		$lineOutput =~ s/_1.+//;
+		$lineOutput =~ s/_R\d.+//;
 		my$ClassOutput = '/scratch/alpine/hvose@xsede.org/SamFiles/Class/' . $lineOutput . '.Loose.mapped_to_hg38';
 		my$LocusOutput = '/scratch/alpine/hvose@xsede.org/SamFiles/Locus/' . $lineOutput . '.Strict.mapped_to_hg38';
 		
@@ -36,9 +36,11 @@ while(defined(my$line = <MYFILE>)){
 		print "Class File Output: " . $ClassOutput . "\n";
 		print "Locus File Output: " . $LocusOutput . "\n";
 
-		#`STAR --runMode alignReads --runThreadN 20 --genomeDir $GenomeWd --readFilesCommand zcat --outFilterMultimapNmax 1000000 --outFilterScoreMinOverLread 0 --outFilterMatchNminOverLread 0 --outFilterMatchNmin 0 --outFilterMismatchNmax 2 --readFilesIn $R1File --outFileNamePrefix $ClassOutput --limitOutSAMoneReadBytes 10000000`;
+		#CURRENTLY NO ZCAT IN COMMAND!!!
+
+		#`STAR --runMode alignReads --runThreadN 20 --genomeDir $GenomeWd  --outFilterMultimapNmax 1000000 --outFilterScoreMinOverLread 0 --outFilterMatchNminOverLread 0 --outFilterMatchNmin 0 --outFilterMismatchNmax 2 --readFilesIn $R1File --outFileNamePrefix $ClassOutput --limitOutSAMoneReadBytes 10000000`;
         
-        # my$Command = 'STAR --runMode alignReads --runThreadN 12 --genomeDir '. $GenomeWd . ' --outFilterMultimapNmax 2 --outFilterScoreMinOverLread 0 --outFilterMatchNminOverLread 0 --outFilterMatchNmin 0 --outFilterMismatchNmax 2 --readFilesIn $R1File --outFileNamePrefix '. $LocusOutput --limitOutSAMoneReadBytes 1000000000;
+        # my$Command = 'STAR --runMode alignReads --runThreadN 12 --genomeDir '. $GenomeWd . ' --readFilesCommand zcat --outFilterMultimapNmax 2 --outFilterScoreMinOverLread 0 --outFilterMatchNminOverLread 0 --outFilterMatchNmin 0 --outFilterMismatchNmax 2 --readFilesIn $R1File --outFileNamePrefix '. $LocusOutput --limitOutSAMoneReadBytes 1000000000;
         
         # print "$Command";
         
