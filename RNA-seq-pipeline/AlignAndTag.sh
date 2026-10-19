@@ -21,4 +21,4 @@ module load perl
 
 perl /scratch/alpine/hvose@xsede.org/viralogue-pipelines/RNA-seq-pipeline/AlignAndTag.pl \
 /scratch/alpine/$USER/Krishnamurthy_Siddharth_WT_Trex1_DRIPc_Cut_and_Tag_10062026/ \
-$SLURM_ARRAY_TASK_ID $SLURM_ARRAY_TASK_COUNT /scratch/alpine/hvose@xsede.org/Krishnamurthy_Siddharth_WT_Trex1_DRIPc_Cut_and_Tag_10062026/DRIPc_R1.txt
+$SLURM_ARRAY_TASK_ID $SLURM_ARRAY_TASK_COUNT /scratch/alpine/hvose@xsede.org/Krishnamurthy_Siddharth_WT_Trex1_DRIPc_Cut_and_Tag_10062026/DRIPc_R1.txt /projects/hvose@xsede.org/Genomes/hg38

@@ -3,6 +3,7 @@ use strict;
 use warnings;
 
 my$FastqFile = $ARGV[3];
+my$GenomeWd = $ARGV[4];
 
 open(MYFILE, $FastqFile) or die "$!";
 my$Decider = $ARGV[1] - 1;
@@ -14,17 +15,15 @@ while(defined(my$line = <MYFILE>)){
 		my$Cwd = `pwd`;
 		my$FastqDir = $ARGV[0];
 		chomp($Cwd);
-		my$GenomeWd = '/projects/hvose@xsede.org/Genomes/hg38';  
 		chomp($GenomeWd);      
-
+		
         # SINGLE READ VERSION
         my$R1File = $FastqDir . $line;
-        
         # PAIRED END VERSION
-        
-		# my$R2File = $line;
-		# $R2File =~ s/_R1/_R2/;
-		# my$R1File = $FastqDir . $line .' '. $FastqDir . $R2File;
+		my$R2File = $line;
+		if ($R2File =~ s/_R1/_R2/) {
+		    my$R1File = $FastqDir . $line .' '. $FastqDir . $R2File;
+		}
 
 		my$lineOutput = $line;
 		$lineOutput =~ s/_R\d.+//;
