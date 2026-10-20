@@ -20,5 +20,5 @@ module load perl
 
 echo "Current Array Task" ${SLURM_ARRAY_TASK_ID[@]}
 
-perl /scratch/alpine/hvose@xsede.org/viralogue-pipelines/RNA-seq-pipeline/GetSRA.pl /projects/hvose@xsede.org/AccessionLists/all_THP1_datasets.txt $SLURM_ARRAY_TASK_ID $SLURM_ARRAY_TASK_COUNT
+perl /scratch/alpine/$USER/viralogue-pipelines/RNA-seq-pipeline/GetSRA.pl /projects/hvose@xsede.org/AccessionLists/all_THP1_datasets.txt $SLURM_ARRAY_TASK_ID $SLURM_ARRAY_TASK_COUNT
 

@@ -3,7 +3,7 @@ use strict;
 use warnings;
 use File::Find;
 
-my$Dir = '/scratch/alpine/hvose@xsede.org/sra';
+my$Dir = '/scratch/alpine/$USER/sra';
 
 my$BLASTNucleotide = $ARGV[0];
 my$Catch = $ARGV[1]-1;
