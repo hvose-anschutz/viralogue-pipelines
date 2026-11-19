@@ -27,8 +27,8 @@ while(defined(my$line = <MYFILE>)){
 
 		my$lineOutput = $line;
 		$lineOutput =~ s/_R\d.+//;
-		my$ClassOutput = '/scratch/alpine/hvose@xsede.org/SamFiles/Class/' . $lineOutput . '.Loose.mapped_to_hg38';
-		my$LocusOutput = '/scratch/alpine/hvose@xsede.org/SamFiles/Locus/' . $lineOutput . '.Strict.mapped_to_hg38';
+		my$ClassOutput = '/scratch/alpine/$USER/SamFiles/Class/' . $lineOutput . '.Loose.mapped_to_hg38';
+		my$LocusOutput = '/scratch/alpine/$USER/SamFiles/Locus/' . $lineOutput . '.Strict.mapped_to_hg38';
 		
 		print "ALL VARIABLES\n";
 		print "R1 + R2 File: " . $R1File . "\n";
@@ -49,8 +49,8 @@ while(defined(my$line = <MYFILE>)){
 		my$SamFileLocus = $LocusOutput . 'Aligned.out.sam';
 		$lineOutput =~ s/\..*//;
 		
-		my$TagHomeClass = '/scratch/alpine/hvose@xsede.org/SamFiles/Class/TagDirectory/' . $lineOutput;
-		my$TagHomeLocus = '/scratch/alpine/hvose@xsede.org/SamFiles/Locus/TagDirectory/' . $lineOutput;
+		my$TagHomeClass = '/scratch/alpine/$USER/SamFiles/Class/TagDirectory/' . $lineOutput;
+		my$TagHomeLocus = '/scratch/alpine/$USER/SamFiles/Locus/TagDirectory/' . $lineOutput;
 
 		#`makeTagDirectory $TagHomeClass $SamFileClass -format sam -keepOne`;
 		`makeTagDirectory $TagHomeLocus $SamFileLocus -format sam -keepOne`;
